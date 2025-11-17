@@ -32,12 +32,12 @@ const ProductShowcase = () => {
     <section className="bg-black py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light text-white mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-white mb-6 tracking-tight">
             Featured
             <br />
             <span className="italic font-extralight">Collections</span>
           </h2>
-          <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 font-light max-w-2xl mx-auto">
             Discover our meticulously curated selection of premium accessories
           </p>
         </div>
@@ -49,7 +49,7 @@ const ProductShowcase = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 z-10"></div>
                 <div className="absolute bottom-6 left-6 right-6 z-20">
                   <p className="text-gray-300 text-sm font-light mb-2">{item.category}</p>
-                  <h3 className="text-3xl font-light text-white mb-2">{item.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-light text-white mb-2">{item.title}</h3>
                   <p className="text-gray-300 font-light">{item.description}</p>
                 </div>
                 <div className="w-full h-full bg-gray-800 group-hover:scale-105 transition-transform duration-700"></div>

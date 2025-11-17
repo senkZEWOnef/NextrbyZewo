@@ -132,7 +132,9 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
         {/* Page content */}
         <main className="px-4 py-6 lg:px-6 bg-gray-900 min-h-screen">
-          {children}
+          <div className="max-w-full overflow-hidden">
+            {children}
+          </div>
         </main>
       </div>
     </div>

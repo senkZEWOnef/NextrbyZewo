@@ -32,7 +32,7 @@ const Shop = () => {
           {/* Header */}
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h1 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
                 Premium
                 <br />
                 <span className="italic font-extralight">Accessories</span>
@@ -69,7 +69,7 @@ const Shop = () => {
           {isMobileFiltersOpen && (
             <div className="fixed inset-0 z-50 md:hidden">
               <div className="absolute inset-0 bg-black bg-opacity-50" onClick={() => setIsMobileFiltersOpen(false)}></div>
-              <div className="absolute right-0 top-0 h-full w-80 bg-black border-l border-gray-800 overflow-y-auto">
+              <div className="absolute right-0 top-0 h-full w-full max-w-sm bg-black border-l border-gray-800 overflow-y-auto">
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h2 className="text-xl font-light text-white">Filters</h2>

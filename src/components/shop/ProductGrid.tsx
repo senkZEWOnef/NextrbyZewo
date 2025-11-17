@@ -185,19 +185,19 @@ const ProductGrid = ({ filters }: ProductGridProps) => {
   return (
     <div>
       {/* Sort and Results Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
         <div>
           <p className="text-gray-400 text-sm font-light">
             Showing {sortedProducts.length} of {products.length} products
           </p>
         </div>
         
-        <div className="flex items-center space-x-4">
-          <span className="text-gray-400 text-sm font-light">Sort by:</span>
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <span className="text-gray-400 text-sm font-light hidden sm:inline">Sort by:</span>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="bg-gray-900 border border-gray-700 text-white text-sm px-3 py-2 rounded-sm focus:border-gray-500 focus:outline-none font-light"
+            className="bg-gray-900 border border-gray-700 text-white text-sm px-3 py-2 rounded-sm focus:border-gray-500 focus:outline-none font-light flex-1 sm:flex-initial"
           >
             <option value="featured">Featured</option>
             <option value="newest">Newest</option>

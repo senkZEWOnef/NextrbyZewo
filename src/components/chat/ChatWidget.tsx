@@ -95,7 +95,7 @@ const ChatWidget = () => {
   if (isMinimized) {
     return (
       <div className="fixed bottom-4 right-4 z-50">
-        <div className="bg-white rounded-lg shadow-xl border border-gray-200 p-4 max-w-xs cursor-pointer" onClick={expandChat}>
+        <div className="bg-white rounded-lg shadow-xl border border-gray-200 p-4 max-w-xs sm:max-w-sm cursor-pointer" onClick={expandChat}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="relative">
@@ -132,8 +132,8 @@ const ChatWidget = () => {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <div className="bg-white rounded-lg shadow-2xl border border-gray-200 w-80 h-96 flex flex-col">
+    <div className="fixed bottom-4 right-4 left-4 sm:left-auto z-50">
+      <div className="bg-white rounded-lg shadow-2xl border border-gray-200 w-full sm:w-80 h-96 max-h-[calc(100vh-2rem)] flex flex-col">
         {/* Header */}
         <div className="bg-gray-900 text-white p-4 rounded-t-lg flex items-center justify-between">
           <div className="flex items-center space-x-3">

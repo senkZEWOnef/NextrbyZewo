@@ -5,12 +5,12 @@ const HeroSection = () => {
     <section className="min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-light text-white mb-6 tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-light text-white mb-6 tracking-tight leading-tight">
             Premium
             <br />
             <span className="italic font-extralight">Protection</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
             Elevate your devices with meticulously crafted accessories that blend form and function seamlessly.
           </p>
         </div>

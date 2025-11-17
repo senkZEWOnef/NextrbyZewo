@@ -23,17 +23,17 @@ const AboutHero = () => {
               <span className="text-gray-400 text-sm font-light uppercase tracking-widest mb-6 block">
                 Our Story
               </span>
-              <h1 className="text-6xl md:text-7xl font-light text-white mb-8 tracking-tight leading-tight">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-white mb-8 tracking-tight leading-tight">
                 Crafting
                 <br />
                 <span className="italic font-extralight">Excellence</span>
               </h1>
               <div className="w-20 h-px bg-white mb-8"></div>
-              <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-8">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-8">
                 Born from a passion for precision engineering and timeless design, 
                 Nextr represents the perfect fusion of functionality and aesthetic excellence.
               </p>
-              <p className="text-lg text-gray-400 font-light leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-400 font-light leading-relaxed">
                 Since our founding, we've been committed to creating accessories that don't just protect 
                 your devices—they elevate your entire digital experience through thoughtful design and 
                 uncompromising quality.
