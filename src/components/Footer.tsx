@@ -1,6 +1,22 @@
 'use client'
 
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+
 const Footer = () => {
+  const [clickCount, setClickCount] = useState(0)
+  const router = useRouter()
+
+  const handleAdminAccess = () => {
+    setClickCount(prev => prev + 1)
+    
+    if (clickCount + 1 === 7) {
+      router.push('/admin')
+      setClickCount(0)
+    }
+    
+    setTimeout(() => setClickCount(0), 3000)
+  }
   return (
     <footer className="bg-black border-t border-gray-800 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -54,7 +70,14 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 font-light text-sm mb-4 md:mb-0">
-              © 2024 Nextr. All rights reserved.
+              © 2024 Nextr. All rights reserved.{' '}
+              <span 
+                onClick={handleAdminAccess}
+                className="cursor-pointer hover:text-gray-300 transition-colors select-none"
+                title="⚡"
+              >
+                ⚡
+              </span>
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors font-light text-sm">Privacy Policy</a>

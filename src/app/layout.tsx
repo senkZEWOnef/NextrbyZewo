@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
+import { ChatProvider } from '@/contexts/ChatContext'
+import ChatWidget from '@/components/chat/ChatWidget'
 
 export const metadata: Metadata = {
   title: 'Nextr - Premium Phone & Electronics Accessories',
@@ -13,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ChatProvider>
+          {children}
+          <ChatWidget />
+        </ChatProvider>
+      </body>
     </html>
   )
 }
