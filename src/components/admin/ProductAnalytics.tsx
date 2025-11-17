@@ -48,7 +48,6 @@ const ProductAnalytics = () => {
             revenue: 5880,
             averageRating: 4.6,
             stockLevel: 23,
-            stockLevel: 23,
             profitMargin: 38,
             trend: 'up'
           },

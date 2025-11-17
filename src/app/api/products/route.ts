@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { products } from '@/db/schema'
-import { eq, and, gte, lte, ilike, inArray } from 'drizzle-orm'
+import { eq, and, gte, lte, ilike, inArray, desc } from 'drizzle-orm'
 
 export async function GET(request: NextRequest) {
   try {
@@ -59,35 +59,71 @@ export async function GET(request: NextRequest) {
       conditions.push(eq(products.isBestseller, true))
     }
 
-    // Build the query
-    let query = db.select().from(products)
+    // Build the query with all conditions and sorting
+    let result
     
     if (conditions.length > 0) {
-      query = query.where(and(...conditions))
+      switch (sortBy) {
+        case 'price-low':
+          result = await db.select().from(products)
+            .where(and(...conditions))
+            .orderBy(products.price)
+            .limit(limit).offset(offset)
+          break
+        case 'price-high':
+          result = await db.select().from(products)
+            .where(and(...conditions))
+            .orderBy(desc(products.price))
+            .limit(limit).offset(offset)
+          break
+        case 'rating':
+          result = await db.select().from(products)
+            .where(and(...conditions))
+            .orderBy(desc(products.rating))
+            .limit(limit).offset(offset)
+          break
+        case 'newest':
+          result = await db.select().from(products)
+            .where(and(...conditions))
+            .orderBy(desc(products.createdAt))
+            .limit(limit).offset(offset)
+          break
+        default:
+          result = await db.select().from(products)
+            .where(and(...conditions))
+            .orderBy(desc(products.isBestseller), desc(products.rating))
+            .limit(limit).offset(offset)
+          break
+      }
+    } else {
+      switch (sortBy) {
+        case 'price-low':
+          result = await db.select().from(products)
+            .orderBy(products.price)
+            .limit(limit).offset(offset)
+          break
+        case 'price-high':
+          result = await db.select().from(products)
+            .orderBy(desc(products.price))
+            .limit(limit).offset(offset)
+          break
+        case 'rating':
+          result = await db.select().from(products)
+            .orderBy(desc(products.rating))
+            .limit(limit).offset(offset)
+          break
+        case 'newest':
+          result = await db.select().from(products)
+            .orderBy(desc(products.createdAt))
+            .limit(limit).offset(offset)
+          break
+        default:
+          result = await db.select().from(products)
+            .orderBy(desc(products.isBestseller), desc(products.rating))
+            .limit(limit).offset(offset)
+          break
+      }
     }
-
-    // Apply sorting
-    switch (sortBy) {
-      case 'price-low':
-        query = query.orderBy(products.price)
-        break
-      case 'price-high':
-        query = query.orderBy(products.price)
-        break
-      case 'rating':
-        query = query.orderBy(products.rating)
-        break
-      case 'newest':
-        query = query.orderBy(products.createdAt)
-        break
-      default:
-        // Featured - could be based on isBestseller, rating, etc.
-        query = query.orderBy(products.isBestseller, products.rating)
-        break
-    }
-
-    // Apply pagination
-    const result = await query.limit(limit).offset(offset)
 
     return NextResponse.json({
       products: result,

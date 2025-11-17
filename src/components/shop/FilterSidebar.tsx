@@ -45,7 +45,7 @@ const FilterSidebar = ({ activeFilters, onFilterChange }: FilterSidebarProps) =>
     { id: 'eco-friendly', name: 'Eco-Friendly Materials' }
   ]
 
-  const toggleSection = (section: string) => {
+  const toggleSection = (section: keyof typeof expandedSections) => {
     setExpandedSections(prev => ({
       ...prev,
       [section]: !prev[section]

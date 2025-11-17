@@ -10,16 +10,24 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '50')
     const offset = parseInt(searchParams.get('offset') || '0')
     
-    let query = db.select().from(newsletterSubscriptions)
+    let subscriptions
     
     if (isActive !== null) {
-      query = query.where(eq(newsletterSubscriptions.isActive, isActive === 'true'))
+      subscriptions = await db
+        .select()
+        .from(newsletterSubscriptions)
+        .where(eq(newsletterSubscriptions.isActive, isActive === 'true'))
+        .orderBy(desc(newsletterSubscriptions.createdAt))
+        .limit(limit)
+        .offset(offset)
+    } else {
+      subscriptions = await db
+        .select()
+        .from(newsletterSubscriptions)
+        .orderBy(desc(newsletterSubscriptions.createdAt))
+        .limit(limit)
+        .offset(offset)
     }
-    
-    const subscriptions = await query
-      .orderBy(desc(newsletterSubscriptions.createdAt))
-      .limit(limit)
-      .offset(offset)
 
     return NextResponse.json({
       subscriptions,

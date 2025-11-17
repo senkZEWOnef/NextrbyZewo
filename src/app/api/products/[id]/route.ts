@@ -5,13 +5,14 @@ import { eq } from 'drizzle-orm'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const product = await db
       .select()
       .from(products)
-      .where(eq(products.id, params.id))
+      .where(eq(products.id, id))
       .limit(1)
 
     if (product.length === 0) {
@@ -34,9 +35,10 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const body = await request.json()
     
     const updatedProduct = await db
@@ -45,7 +47,7 @@ export async function PATCH(
         ...body,
         updatedAt: new Date()
       })
-      .where(eq(products.id, params.id))
+      .where(eq(products.id, id))
       .returning()
 
     if (updatedProduct.length === 0) {
@@ -68,12 +70,13 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const deletedProduct = await db
       .delete(products)
-      .where(eq(products.id, params.id))
+      .where(eq(products.id, id))
       .returning()
 
     if (deletedProduct.length === 0) {
