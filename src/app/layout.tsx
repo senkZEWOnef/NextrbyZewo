@@ -4,8 +4,8 @@ import { ChatProvider } from '@/contexts/ChatContext'
 import ChatWidget from '@/components/chat/ChatWidget'
 
 export const metadata: Metadata = {
-  title: 'Nextr - Premium Phone & Electronics Accessories',
-  description: 'Elevate your devices with meticulously crafted accessories that blend form and function seamlessly.',
+  title: 'nexr - Premium Phone & Electronics Accessories',
+  description: 'Where innovation meets dependability. Premium accessories engineered for the modern era. Reliably. Redefined.',
 }
 
 export default function RootLayout({

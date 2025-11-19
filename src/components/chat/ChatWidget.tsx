@@ -107,7 +107,7 @@ const ChatWidget = () => {
                 }`}></div>
               </div>
               <div>
-                <div className="font-medium text-sm">Nextr Support</div>
+                <div className="font-medium text-sm">nexr Support</div>
                 <div className={`text-xs ${isAgentOnline ? 'text-green-600' : 'text-gray-500'}`}>
                   {isAgentOnline ? 'Online' : 'Offline'}
                 </div>
@@ -146,7 +146,7 @@ const ChatWidget = () => {
               }`}></div>
             </div>
             <div>
-              <div className="font-medium text-sm">Nextr Support</div>
+              <div className="font-medium text-sm">nexr Support</div>
               <div className="text-xs text-gray-300">
                 {isAgentOnline ? 'Online - We typically reply instantly' : 'Offline - We\'ll get back to you soon'}
               </div>

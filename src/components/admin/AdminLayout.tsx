@@ -36,7 +36,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
           <div className="fixed inset-0 bg-black bg-opacity-75" onClick={() => setSidebarOpen(false)} />
           <div className="relative flex flex-col w-full max-w-xs bg-gray-800 border-r border-gray-700">
             <div className="flex items-center justify-between px-4 py-6 border-b border-gray-700">
-              <h1 className="text-xl font-semibold text-white">⚡ Nextr Admin</h1>
+              <h1 className="text-xl font-light tracking-wide text-white">⚡ nexr Admin</h1>
               <button
                 onClick={() => setSidebarOpen(false)}
                 className="text-gray-400 hover:text-white"
@@ -69,7 +69,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
         <div className="flex flex-col flex-grow bg-gray-800 border-r border-gray-700">
           <div className="flex items-center px-6 py-6 border-b border-gray-700">
-            <h1 className="text-xl font-semibold text-white">⚡ Nextr Admin</h1>
+            <h1 className="text-xl font-light tracking-wide text-white">⚡ nexr Admin</h1>
           </div>
           
           <nav className="flex-1 px-4 py-6 space-y-2">

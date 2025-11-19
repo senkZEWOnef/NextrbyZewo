@@ -11,8 +11,8 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-6">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-light tracking-wide text-white hover:text-gray-300 transition-colors">
-              Nextr
+            <Link href="/" className="text-2xl font-extralight tracking-[0.3em] text-white hover:text-gray-300 transition-colors">
+              nexr
             </Link>
           </div>
 
