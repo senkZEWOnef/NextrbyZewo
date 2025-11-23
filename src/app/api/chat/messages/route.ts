@@ -15,10 +15,22 @@ export async function GET(request: NextRequest) {
       )
     }
 
+    // First find the chat session by sessionId
+    const session = await db
+      .select()
+      .from(chatSessions)
+      .where(eq(chatSessions.sessionId, sessionId))
+      .limit(1)
+
+    if (session.length === 0) {
+      return NextResponse.json({ messages: [] })
+    }
+
+    // Then get messages using the session's UUID
     const messages = await db
       .select()
       .from(chatMessages)
-      .where(eq(chatMessages.sessionId, sessionId))
+      .where(eq(chatMessages.sessionId, session[0].id))
       .orderBy(chatMessages.createdAt)
 
     return NextResponse.json({ messages })
